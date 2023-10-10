@@ -6,9 +6,16 @@ import 'package:to_do/screens/tasks/tasks_tab.dart';
 
 import '../provider/layout_provider.dart';
 
-class HomeLayOut extends StatelessWidget {
+class HomeLayOut extends StatefulWidget {
   HomeLayOut({Key? key}) : super(key: key);
   static const String routeName = "home";
+
+  @override
+  State<HomeLayOut> createState() => _HomeLayOutState();
+}
+
+class _HomeLayOutState extends State<HomeLayOut> {
+  String title =" To-Do";
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +27,8 @@ class HomeLayOut extends StatelessWidget {
           floatingActionButtonLocation:
               FloatingActionButtonLocation.centerDocked,
           appBar: AppBar(
-            title: Text("To-Do"),
+            title: Text(title),
+            elevation: 0,
           ),
           bottomNavigationBar: BottomAppBar(
             notchMargin: 5,
@@ -28,7 +36,9 @@ class HomeLayOut extends StatelessWidget {
             child: BottomNavigationBar(
               currentIndex: pro.index,
               onTap: (value) {
+                value==0?title="To-Do":title="Settings";
                 pro.currentIcndex(value);
+
               },
               items: const [
                 BottomNavigationBarItem(

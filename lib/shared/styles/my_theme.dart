@@ -10,7 +10,7 @@ class MyTheme {
       textTheme: TextTheme(
         bodySmall:TextStyle(
           fontSize: 20,
-          fontWeight: FontWeight.bold,
+          fontWeight: FontWeight.w500,
           color: Colors.blue
         ),
         bodyLarge: GoogleFonts.elMessiri(
