@@ -20,29 +20,15 @@ class _SettingTabState extends State<SettingTab> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              "Language",
-              style: Theme.of(context)
-                  .textTheme
-                  .bodySmall!
-                  .copyWith(color: Colors.black),
-            ),
+            Text("Language", style: Theme.of(context).textTheme.bodySmall),
             InkWell(
-              onTap:   () {
+              onTap: () {
                 showLangBottom();
-                setState(() {
-
-                });
+                setState(() {});
               },
               child: Filed(choise: "English"),
             ),
-            Text(
-              "Mode",
-              style: Theme.of(context)
-                  .textTheme
-                  .bodySmall!
-                  .copyWith(color: Colors.black),
-            ),
+            Text("Mode", style: Theme.of(context).textTheme.bodySmall),
             InkWell(
               onTap: () {
                 showModeBottom();
@@ -61,7 +47,11 @@ class _SettingTabState extends State<SettingTab> {
       builder: (context) => LangBottemSheet(),
     );
   }
-  showModeBottom(){
-    showModalBottomSheet(context: context, builder: (context) => ModeBottemSheet(),);
+
+  showModeBottom() {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) => ModeBottemSheet(),
+    );
   }
 }

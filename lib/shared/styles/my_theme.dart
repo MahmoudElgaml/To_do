@@ -6,13 +6,23 @@ import 'colors.dart';
 
 class MyTheme {
   static ThemeData lightTheme = ThemeData(
+      colorScheme: ColorScheme(
+          brightness: Brightness.light,
+          primary: whiteColor,
+          onPrimary: Colors.white,
+          secondary: whiteColor,
+          onSecondary: whiteColor,
+          error: Colors.green,
+          onError: Colors.deepPurple,
+          background: Colors.pink,
+          onBackground: Colors.greenAccent,
+          surface: Colors.deepOrange,
+          onSurface: Colors.black),
+      primaryColor: primaryColor,
       scaffoldBackgroundColor: minit,
       textTheme: TextTheme(
-        bodySmall:TextStyle(
-          fontSize: 20,
-          fontWeight: FontWeight.w500,
-          color: Colors.blue
-        ),
+        bodySmall: const TextStyle(
+            fontSize: 20, fontWeight: FontWeight.w500, color: Colors.black),
         bodyLarge: GoogleFonts.elMessiri(
           color: blackColor,
           fontSize: 30,
@@ -27,5 +37,27 @@ class MyTheme {
         showUnselectedLabels: false,
         elevation: 0,
       ));
-  static ThemeData darkTheme = ThemeData();
+  static ThemeData darkTheme = ThemeData(
+      scaffoldBackgroundColor: darkColor,
+      primaryColor: whiteColor,
+      colorScheme: ColorScheme(
+          brightness: Brightness.dark,
+          primary: darkColor,
+          onPrimary: Colors.white,
+          secondary: darkColor,
+          onSecondary: whiteColor,
+          error: Colors.green,
+          onError: Colors.deepPurple,
+          background: Colors.pink,
+          onBackground: Colors.greenAccent,
+          surface: Colors.deepOrange,
+          onSurface: Colors.white),
+      textTheme: TextTheme(
+      bodySmall: const TextStyle(
+      fontSize: 20, fontWeight: FontWeight.w500, color: Colors.white)
+  )
+
+  ,
+
+  );
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:to_do/screens/settings/settings_tab.dart';
+import 'package:to_do/screens/tasks/task_bottom_sheet.dart';
 import 'package:to_do/screens/tasks/tasks_tab.dart';
 
 import '../provider/layout_provider.dart';
@@ -15,7 +16,7 @@ class HomeLayOut extends StatefulWidget {
 }
 
 class _HomeLayOutState extends State<HomeLayOut> {
-  String title =" To-Do";
+  String title = " To-Do";
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +28,7 @@ class _HomeLayOutState extends State<HomeLayOut> {
           floatingActionButtonLocation:
               FloatingActionButtonLocation.centerDocked,
           appBar: AppBar(
+            backgroundColor: Colors.blue,
             title: Text(title),
             elevation: 0,
           ),
@@ -34,11 +36,12 @@ class _HomeLayOutState extends State<HomeLayOut> {
             notchMargin: 5,
             shape: const CircularNotchedRectangle(),
             child: BottomNavigationBar(
+              selectedItemColor: Colors.blue,
+              backgroundColor: Theme.of(context).colorScheme.primary,
               currentIndex: pro.index,
               onTap: (value) {
-                value==0?title="To-Do":title="Settings";
+                value == 0 ? title = "To-Do" : title = "Settings";
                 pro.currentIcndex(value);
-
               },
               items: const [
                 BottomNavigationBarItem(
@@ -57,11 +60,14 @@ class _HomeLayOutState extends State<HomeLayOut> {
             ),
           ),
           floatingActionButton: FloatingActionButton(
+            backgroundColor: Colors.blue,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(30),
                 side: BorderSide(color: Colors.white, width: 3.w)),
-            onPressed: () {},
-            child: Icon(Icons.add),
+            onPressed: () {
+              showTBottomSheet();
+            },
+            child: const Icon(Icons.add),
           ),
           body: bodies[pro.index],
         );
@@ -70,4 +76,17 @@ class _HomeLayOutState extends State<HomeLayOut> {
   }
 
   List<Widget> bodies = [TaskTab(), SettingTab()];
+
+  showTBottomSheet() {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) => Padding(
+        padding: EdgeInsets.only(
+          bottom: MediaQuery.of(context).viewInsets.bottom,
+        ),
+        child: TaskBottomSheet(),
+      ),
+      isScrollControlled: true,
+    );
+  }
 }

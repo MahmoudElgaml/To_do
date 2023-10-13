@@ -6,6 +6,7 @@ class LangBottemSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      color: Colors.white,
       padding: EdgeInsets.all(18.r),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

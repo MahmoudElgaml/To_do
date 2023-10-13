@@ -33,7 +33,9 @@ class TaskItem extends StatelessWidget {
               children: [
                 Text(
                   "play basket Ball",
-                  style: Theme.of(context).textTheme.bodySmall,
+                  style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                    color: Colors.black
+                  ),
                 ),
                 SizedBox(
                   height: 10.h,
@@ -45,7 +47,13 @@ class TaskItem extends StatelessWidget {
                       Icons.access_time,
                       color: Colors.black,
                     ),
-                    Text(DateTime.now().toString().substring(1, 10))
+
+                    Text(
+                      DateTime.now().toString().substring(1, 10),
+                      style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                          color: Colors.black
+                      ),
+                    )
                   ],
                 )
               ],
@@ -55,10 +63,9 @@ class TaskItem extends StatelessWidget {
               onPressed: () {},
               child: Icon(Icons.done),
               style: ElevatedButton.styleFrom(
-                shape: RoundedRectangleBorder(
-                  borderRadius:   BorderRadius.circular(10.r)
-                )
-              ),
+                  backgroundColor: Colors.blue,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.r))),
             )
           ],
         ),
