@@ -8,6 +8,13 @@ class TaskFiled extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      validator: (value) {
+        if(value==null||value.isEmpty){
+          return isTitle?"please enter title":"please enter description";
+        }
+        return null;
+
+      },
       controller: controller,
       decoration: InputDecoration(
         focusedBorder: OutlineInputBorder(

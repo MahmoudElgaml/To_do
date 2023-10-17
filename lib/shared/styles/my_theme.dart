@@ -12,7 +12,7 @@ class MyTheme {
           onPrimary: Colors.white,
           secondary: whiteColor,
           onSecondary: whiteColor,
-          error: Colors.green,
+          error: Colors.red,
           onError: Colors.deepPurple,
           background: Colors.pink,
           onBackground: Colors.greenAccent,
