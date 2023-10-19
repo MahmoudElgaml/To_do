@@ -5,6 +5,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:to_do/layout/home_layout.dart';
 import 'package:to_do/provider/settings_provider.dart';
+import 'package:to_do/screens/auth/auth_taps.dart';
+import 'package:to_do/screens/edit_task/edit_task_screen.dart';
 import 'package:to_do/shared/styles/my_theme.dart';
 import 'firebase_options.dart';
 
@@ -39,12 +41,15 @@ class MyApp extends StatelessWidget {
         supportedLocales: context.supportedLocales,
         locale: context.locale,
        debugShowCheckedModeBanner : false,
-        initialRoute:HomeLayOut.routeName ,
+
         theme: MyTheme.lightTheme,
         darkTheme: MyTheme.darkTheme,
         themeMode: pro.mode,
+        initialRoute:AuthTap.routrName ,
         routes:{
          HomeLayOut.routeName:(context) => HomeLayOut(),
+         EditTask.routeName:  (context) => EditTask(),
+          AuthTap.routrName:  (context) => AuthTap(),
         },
       ),
     );

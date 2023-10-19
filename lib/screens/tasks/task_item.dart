@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:to_do/models/task_model.dart';
+import 'package:to_do/screens/edit_task/edit_task_screen.dart';
 import 'package:to_do/shared/firebase/firebase-function.dart';
 
 class TaskItem extends StatelessWidget {
@@ -35,6 +36,28 @@ class TaskItem extends StatelessWidget {
                 borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(20),
                     bottomLeft: Radius.circular(20)),
+              ),
+            ],
+          ),
+          endActionPane: ActionPane(
+            dismissible: DismissiblePane(
+              confirmDismiss: () async {
+                Navigator.pushNamed(context, EditTask.routeName,
+                    arguments: taskModel);
+                return false;
+
+              },
+              onDismissed: () {},
+            ),
+            motion: const DrawerMotion(),
+            children: [
+              SlidableAction(
+                onPressed: (context) {},
+                label: "edit",
+                backgroundColor: Colors.blue,
+                borderRadius: const BorderRadius.only(
+                    topRight: Radius.circular(20),
+                    bottomRight: Radius.circular(20)),
               ),
             ],
           ),

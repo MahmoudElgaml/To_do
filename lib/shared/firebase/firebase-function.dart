@@ -31,4 +31,7 @@ class FirebaseFunctions {
   static void deleteTask(String id) {
     getTaskCollection().doc(id).delete();
   }
+  static void updateTask(TaskModel taskModel){
+    getTaskCollection().doc(taskModel.id).update(taskModel.toJson());
+  }
 }

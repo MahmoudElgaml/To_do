@@ -33,11 +33,12 @@ class _HomeLayOutState extends State<HomeLayOut> {
             elevation: 0,
           ),
           bottomNavigationBar: BottomAppBar(
+            color: Theme.of(context).colorScheme.primary,
             notchMargin: 5,
             shape: const CircularNotchedRectangle(),
             child: BottomNavigationBar(
               selectedItemColor: Colors.blue,
-              backgroundColor: Theme.of(context).colorScheme.primary,
+              backgroundColor: Colors.transparent,
               currentIndex: pro.index,
               onTap: (value) {
                 value == 0 ? title = "To-Do" : title = "Settings";
