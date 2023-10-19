@@ -46,7 +46,7 @@ class _TaskTabState extends State<TaskTab> {
                   snapshot.data?.docs.map((e) => e.data()).toList() ?? [];
               return Expanded(
                 child: ListView.builder(
-                  itemBuilder: (context, index) => TaskItem(tasks[index]),
+                  itemBuilder: (context, index) => TaskItem(tasks[index],index+1),
                   itemCount: tasks.length,
                 ),
               );

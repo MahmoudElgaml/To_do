@@ -22,7 +22,13 @@ class FirebaseFunctions {
     docRef.set(taskModel);
   }
 
- static Stream<QuerySnapshot<TaskModel>> getTask(DateTime time) {
-    return getTaskCollection().where("date",isEqualTo: time.millisecondsSinceEpoch).snapshots();
+  static Stream<QuerySnapshot<TaskModel>> getTask(DateTime time) {
+    return getTaskCollection()
+        .where("date", isEqualTo: time.millisecondsSinceEpoch)
+        .snapshots();
+  }
+
+  static void deleteTask(String id) {
+    getTaskCollection().doc(id).delete();
   }
 }
