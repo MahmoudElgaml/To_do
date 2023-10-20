@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
         theme: MyTheme.lightTheme,
         darkTheme: MyTheme.darkTheme,
         themeMode: pro.mode,
-        initialRoute:AuthTap.routrName ,
+        initialRoute: HomeLayOut.routeName ,
         routes:{
          HomeLayOut.routeName:(context) => HomeLayOut(),
          EditTask.routeName:  (context) => EditTask(),
